@@ -1,5 +1,5 @@
 import { InputNumber, InputNumberProps } from 'antd';
-import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper';
+import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper/FieldWrapper';
 
 export type NumberFieldProps = {
   type: 'number';

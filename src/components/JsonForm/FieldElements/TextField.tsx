@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 
 import { Input, InputProps } from 'antd';
-import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper';
+import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper/FieldWrapper';
 import { PHONE_REGEX } from 'src/config';
 
 type FieldTypes = 'text' | 'email' | 'url' | 'phone';

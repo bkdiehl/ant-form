@@ -1,7 +1,7 @@
 import { DatePicker, DatePickerProps } from 'antd';
 import { PickerPanelDateProps } from 'antd/lib/calendar/generateCalendar';
 import { Moment } from 'moment';
-import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper';
+import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper/FieldWrapper';
 
 export type NumberFieldProps = {
   type: 'date';

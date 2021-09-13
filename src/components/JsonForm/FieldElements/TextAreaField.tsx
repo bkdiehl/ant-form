@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { TextAreaProps } from 'antd/lib/input';
-import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper';
+import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper/FieldWrapper';
 
 export type TextAreaFieldProps = {
   type: 'textarea';

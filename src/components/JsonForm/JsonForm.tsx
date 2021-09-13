@@ -1,3 +1,5 @@
+import { useEffect, useMemo } from 'react';
+
 import { Button, Form, Input, Space } from 'antd';
 import { DateField } from 'src/components/JsonForm/FieldElements/DateField';
 import { NumberField } from 'src/components/JsonForm/FieldElements/NumberField';
@@ -13,37 +15,50 @@ export function JsonForm() {
     console.log('data', data);
   };
 
-  const initialValues = { name: 'Roberto', children: [{ name: 'Bobbie', age: 12 }] };
+  const initialValues = useMemo(
+    () => ({
+      name: 'Roberto',
+      password: 'test',
+      children: [
+        { name: 'Bobbie', age: 12 },
+        // { name: 'Joey', age: 12 },
+      ],
+    }),
+    [],
+  );
 
   return (
     <>
-      <Form
-        form={form}
-        onFinish={handleFinish}
-        layout="vertical"
-        initialValues={initialValues}
-        // onValuesChange={(changedValue, values) => {
-        //   console.log('changed', values);
-        // }}
-        // onFieldsChange={(changedFields, allFields) => {
-        //   console.log('allFields', allFields);
-        // }}
-      >
+      <Form form={form} onFinish={handleFinish} layout="vertical" initialValues={initialValues}>
         <TextField
           name="name"
-          onChange={(value) => {
-            console.log('value', value);
-          }}
+          onChange={(value) => console.log('value', value)}
           checkInitialValues
         />
         <NumberField name="age" />
-        <PasswordField name="password" visible={(data) => data.age != null} />
-        <TextField name="testField" visible={(data) => data.age && data.password} />
-        {/* <DateField name="date" />
+        <PasswordField
+          name="password"
+          visible={(data) => data.age != null}
+          visibleDependencies={['age']}
+        />
+        <TextField
+          name="testField"
+          visible={(data) => data.age && data.password}
+          visibleDependencies={['age', 'password']}
+        />
+        <DateField name="date" />
         <RepeaterField name="children" title="Children">
-          <TextField name={'name'} visible={(data) => data?.children?.[0]?.age > 12} />
-          <NumberField name={'age'} />
-        </RepeaterField> */}
+          {({ key }) => (
+            <>
+              <TextField name="name" />
+              <NumberField
+                name="age"
+                visible={(data) => data?.children?.[key]?.name}
+                visibleDependencies={['children', key, 'name']}
+              />
+            </>
+          )}
+        </RepeaterField>
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
@@ -53,3 +68,8 @@ export function JsonForm() {
     </>
   );
 }
+
+/**
+  (data, i) => (['age', 'password']) => data.age && data.password
+  visible: (data,)
+ */
