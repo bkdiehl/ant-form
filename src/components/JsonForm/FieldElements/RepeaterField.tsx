@@ -47,7 +47,14 @@ export function RepeaterField({
               dataSource={fields}
               renderItem={({ key, name, fieldKey }, index) => {
                 return (
-                  <List.Item className={styles.listItem}>
+                  <List.Item
+                    className={styles.listItem}
+                    extra={
+                      <Button type="text" danger onClick={() => remove(name)}>
+                        Remove
+                      </Button>
+                    }
+                  >
                     <RepeaterContext.Provider value={{ parentName, key, name, fieldKey, index }}>
                       {children({ key, name, fieldKey, index })}
                     </RepeaterContext.Provider>

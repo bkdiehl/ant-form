@@ -15,14 +15,14 @@ export function FieldWrapperVisible({
   visibleDependencies = [],
   children,
 }: VisibleHandlerProps) {
-  const { parentName, key } = React.useContext(RepeaterContext);
+  const { parentName, index } = React.useContext(RepeaterContext);
   const { fieldName } = React.useContext(FieldWrapperContext);
 
   const shouldCheckVisibility = typeof visible == 'function';
   const shouldUpdate = shouldCheckVisibility;
 
   const handleVisibility = (values) => {
-    return typeof visible == 'function' ? visible(values, key) : visible;
+    return typeof visible == 'function' ? visible(values, index) : visible;
   };
 
   const handleBasicVisibleDependencies = (previousVal, currentVal) =>
@@ -31,7 +31,8 @@ export function FieldWrapperVisible({
   const handleRepeaterVisibleDependencies = (previousVal, currentVal) => {
     return visibleDependencies.some(
       (depName) =>
-        previousVal?.[parentName]?.[key]?.[depName] != currentVal?.[parentName]?.[key]?.[depName] ||
+        previousVal?.[parentName]?.[index]?.[depName] !=
+          currentVal?.[parentName]?.[index]?.[depName] ||
         handleBasicVisibleDependencies(previousVal, currentVal),
     );
   };

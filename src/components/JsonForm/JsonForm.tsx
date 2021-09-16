@@ -43,13 +43,13 @@ export function JsonForm({ initialValues }) {
         <PasswordField name="password" visible={(data) => data.age != null} />
         <DateField name="date" />
         <RepeaterField name="children" title="Children">
-          {({ key }) => (
+          {({ index }) => (
             <>
               <HorizontalLayout>
                 <TextField name="name" />
                 <TextField name="lastName" />
               </HorizontalLayout>
-              {/* <VerticalLayout visible={(data) => data?.children?.[key]?.name}>
+              {/* <VerticalLayout visible={(data) => data?.children?.[index]?.name}>
                 <NumberField name="age" />
                 <TextField name="favoriteColor" />
               </VerticalLayout> */}

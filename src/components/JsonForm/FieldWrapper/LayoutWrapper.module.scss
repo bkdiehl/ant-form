@@ -1,4 +1,5 @@
 .layoutWrapper {
+  flex: 1;
   &:not(:last-child) {
     margin-bottom: 24px;
   }
