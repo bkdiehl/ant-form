@@ -1,6 +1,6 @@
 import { Input } from 'antd';
 import { PasswordProps } from 'antd/lib/input';
-import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper/FieldWrapper';
+import { FieldWrapper, FieldWrapperProps } from 'src/components/JsonForm/FieldWrapper';
 
 export type PasswordFieldProps = {
   type: 'password';

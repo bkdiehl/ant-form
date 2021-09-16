@@ -37,7 +37,7 @@ export function FieldWrapperVisible({
   };
 
   const handleShouldUpdate = (previousVal, currentVal, scope) => {
-    console.log(previousVal, currentVal, scope);
+    // console.log(previousVal, currentVal, scope);
     const needsUpdate =
       parentName != null
         ? handleRepeaterVisibleDependencies(previousVal, currentVal)
@@ -48,11 +48,12 @@ export function FieldWrapperVisible({
   return (
     <Form.Item
       noStyle
-      shouldUpdate={!visibleDependencies?.length ? shouldUpdate : handleShouldUpdate}
+      // shouldUpdate={!visibleDependencies?.length ? shouldUpdate : handleShouldUpdate}
+      shouldUpdate={true}
     >
       {shouldUpdate
         ? ({ getFieldValue, getFieldsValue, setFields, resetFields, isFieldTouched }) => {
-            console.log('render');
+            // console.log('render');
             const renderChild = shouldCheckVisibility ? handleVisibility(getFieldsValue()) : true;
 
             if (!renderChild && fieldName != null && isFieldTouched(fieldName)) {

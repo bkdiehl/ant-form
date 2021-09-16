@@ -12,6 +12,9 @@ function Home() {
       <Link className="App-link" to="/form">
         Form
       </Link>
+      <Link className="App-link" to="/list">
+        List
+      </Link>
       {/* <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
         Learn React
       </a> */}

@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Form, FormItemProps } from 'antd';
 import { NamePath } from 'antd/lib/form/interface';
+import { FieldPropsBase } from 'src/components/JsonForm/FieldWrapper';
 import { FieldWrapperChanged } from 'src/components/JsonForm/FieldWrapper/FieldWrapperChanged';
 import { FieldWrapperVisible } from 'src/components/JsonForm/FieldWrapper/FieldWrapperVisible';
 import { splitCamelCase, toMultipleTitleCase } from 'src/utils';
@@ -17,13 +18,6 @@ export type FieldWrapperProps = Omit<FormItemProps, 'label' | 'name'> &
     onChange?: (value, data) => void;
     checkInitialValues?: boolean;
   };
-
-export type FieldPropsBase = {
-  visible?: boolean | ((data, index: number) => boolean);
-  visibleDependencies?: string[];
-  className?: string;
-  style?: CSSProperties;
-};
 
 type State = {
   fieldName?: (string | number)[];

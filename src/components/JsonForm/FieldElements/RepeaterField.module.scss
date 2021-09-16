@@ -1,0 +1,11 @@
+.repeaterCard {
+  :global {
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+  .listItem {
+    display: block;
+    padding: 12px;
+  }
+}
