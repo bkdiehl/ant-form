@@ -8,7 +8,7 @@ import { AppRoutes } from 'src/routes';
 function App() {
   return (
     <div className="App">
-      <Suspense fallback={<h1>Loading</h1>}>
+      <Suspense fallback={null}>
         <Router>
           <AppRoutes />
         </Router>

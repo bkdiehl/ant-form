@@ -11,7 +11,6 @@ import { HorizontalLayout } from 'src/components/JsonForm/LayoutElements/Horizon
 
 import { RepeaterField } from './FieldElements/RepeaterField';
 import styles from './JsonForm.module.scss';
-import { VerticalLayout } from './LayoutElements/VerticalLayout';
 
 export function JsonForm({ initialValues }) {
   const [form] = Form.useForm();
@@ -49,10 +48,6 @@ export function JsonForm({ initialValues }) {
                 <TextField name="name" />
                 <TextField name="lastName" />
               </HorizontalLayout>
-              {/* <VerticalLayout visible={(data) => data?.children?.[index]?.name}>
-                <NumberField name="age" />
-                <TextField name="favoriteColor" />
-              </VerticalLayout> */}
             </>
           )}
         </RepeaterField>

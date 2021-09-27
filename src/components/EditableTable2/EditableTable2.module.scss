@@ -1,0 +1,36 @@
+.table {
+  display: inline-block;
+  border-spacing: 0;
+  border: 1px solid black;
+
+  :global {
+    .t-body {
+      border-top: 1px solid black;
+    }
+    .tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid black;
+      }
+      // :last-child {
+      //   .td {
+      //   }
+      // }
+    }
+
+    .th,
+    .td {
+      margin: 0;
+      padding: 0.5rem;
+
+      border-right: 1px solid black;
+      // &:not(:last-child) {
+      //   border-bottom: 1px solid black;
+      // }
+
+      // :last-child {
+      //   border-right: 1px solid black;
+      // }
+    }
+  }
+
+}

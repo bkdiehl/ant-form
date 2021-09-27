@@ -25,26 +25,26 @@ export function FieldWrapperVisible({
     return typeof visible == 'function' ? visible(values, index) : visible;
   };
 
-  const handleBasicVisibleDependencies = (previousVal, currentVal) =>
-    visibleDependencies.some((depName) => previousVal[depName] != currentVal[depName]);
+  // const handleBasicVisibleDependencies = (previousVal, currentVal) =>
+  //   visibleDependencies.some((depName) => previousVal[depName] != currentVal[depName]);
 
-  const handleRepeaterVisibleDependencies = (previousVal, currentVal) => {
-    return visibleDependencies.some(
-      (depName) =>
-        previousVal?.[parentName]?.[index]?.[depName] !=
-          currentVal?.[parentName]?.[index]?.[depName] ||
-        handleBasicVisibleDependencies(previousVal, currentVal),
-    );
-  };
+  // const handleRepeaterVisibleDependencies = (previousVal, currentVal) => {
+  //   return visibleDependencies.some(
+  //     (depName) =>
+  //       previousVal?.[parentName]?.[index]?.[depName] !=
+  //         currentVal?.[parentName]?.[index]?.[depName] ||
+  //       handleBasicVisibleDependencies(previousVal, currentVal),
+  //   );
+  // };
 
-  const handleShouldUpdate = (previousVal, currentVal, scope) => {
-    // console.log(previousVal, currentVal, scope);
-    const needsUpdate =
-      parentName != null
-        ? handleRepeaterVisibleDependencies(previousVal, currentVal)
-        : handleBasicVisibleDependencies(previousVal, currentVal);
-    return needsUpdate;
-  };
+  // const handleShouldUpdate = (previousVal, currentVal, scope) => {
+  //   // console.log(previousVal, currentVal, scope);
+  //   const needsUpdate =
+  //     parentName != null
+  //       ? handleRepeaterVisibleDependencies(previousVal, currentVal)
+  //       : handleBasicVisibleDependencies(previousVal, currentVal);
+  //   return needsUpdate;
+  // };
 
   return (
     <Form.Item

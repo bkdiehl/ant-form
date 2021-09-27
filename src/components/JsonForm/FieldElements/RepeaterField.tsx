@@ -45,6 +45,7 @@ export function RepeaterField({
           >
             <List
               dataSource={fields}
+              itemLayout="vertical"
               renderItem={({ key, name, fieldKey }, index) => {
                 return (
                   <List.Item
