@@ -12,40 +12,40 @@ const ListItem = React.lazy(() => import('../pages/ListItem'));
 const TestModal = React.lazy(() => import('../pages/Modals/TestModal'));
 
 const AppLayout = ({ routes }) => {
-  console.log('routesasdfa', routes);
   return <RoutesWithSubRoutes routes={routes} />;
 };
 
 export const AppRoutes = () => {
   const routes = [
-    // {
-    //   path: '/',
-    //   component: AppLayout,
-    //   routes: [
-    //     { path: '/', component: Home, title: 'Home Page' },
-    //     { path: '/form', component: Form },
-    //     { path: '/table', component: TablePage },
-    //     {
-    //       path: '/list',
-    //       component: List,
-    //       routes: [
-    //         { path: '/:id', component: ListItem },
-    //         { path: '/:id/edit', component: TestModal },
-    //       ],
-    //     },
-    //   ],
-    // },
-    { path: '/', component: Home, title: 'Home Page', exact: true },
-    { path: '/form', component: Form },
-    { path: '/table', component: TablePage },
     {
-      path: '/list',
-      component: List,
+      path: '/',
+      component: AppLayout,
+
       routes: [
-        { path: '/:id', component: ListItem },
-        { path: '/:id/edit', component: TestModal },
+        { path: '/', component: Home, title: 'Home Page', exact: true },
+        { path: '/form', component: Form },
+        { path: '/table', component: TablePage },
+        {
+          path: '/list',
+          component: List,
+          routes: [
+            { path: '/:id', component: ListItem },
+            { path: '/:id/edit', component: TestModal },
+          ],
+        },
       ],
     },
+    // { path: '/', component: Home, title: 'Home Page', exact: true },
+    // { path: '/form', component: Form },
+    // { path: '/table', component: TablePage },
+    // {
+    //   path: '/list',
+    //   component: List,
+    //   routes: [
+    //     { path: '/:id', component: ListItem },
+    //     { path: '/:id/edit', component: TestModal },
+    //   ],
+    // },
   ];
 
   return (

@@ -23,6 +23,7 @@ export function RoutesWithSubRoutes({ routes, exclusive = true }: RoutesWithSubR
   const Wrapper = exclusive ? Switch : Fragment;
   const renderRoutes = useMemo(() => {
     routes.forEach((route) => {
+      route.path = route.path.replace('//', '/');
       route.routes?.forEach((x) => {
         x.path = `${route.path}${x.path}`;
       });
