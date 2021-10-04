@@ -19,6 +19,7 @@ type RoutesWithSubRoutesType = {
   props?;
 };
 
+// TODO - find out how to inject props
 export function RoutesWithSubRoutes({ routes, exclusive = true }: RoutesWithSubRoutesType) {
   const Wrapper = exclusive ? Switch : Fragment;
   const renderRoutes = useMemo(() => {

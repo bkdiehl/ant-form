@@ -23,6 +23,7 @@ export function useFeatureContext<T = Record<string, unknown>>() {
 export function FeatureProvider({ value, routes }: FeatureProviderProps) {
   return (
     <FeatureContext.Provider value={value}>
+      {/* TODO.filter routes based off permissions */}
       <RoutesWithSubRoutes routes={routes} />
     </FeatureContext.Provider>
   );

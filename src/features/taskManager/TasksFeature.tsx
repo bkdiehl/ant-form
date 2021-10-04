@@ -44,5 +44,5 @@ export default function TasksFeature() {
     },
   ];
 
-  return <FeatureProvider value={config} routes={routes}></FeatureProvider>;
+  return <FeatureProvider value={config} routes={routes} />;
 }
