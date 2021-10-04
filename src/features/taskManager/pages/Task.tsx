@@ -4,7 +4,7 @@ import { RoutedDrawer } from 'src/components';
 import { tasks } from 'src/features/taskManager/shared/hooks/taskHooks';
 
 export default function Task() {
-  const { id } = useParams();
+  const { id } = useParams<any>();
 
   const task = tasks.find((task) => task.id == Number(id));
 

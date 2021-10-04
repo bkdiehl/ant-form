@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 
 import { Modal } from 'antd';
 
 export default function TestModal() {
   const [visible, setVisible] = useState(true);
+  const history = useHistory();
 
-  const navigate = useNavigate();
   const handleClose = () => {
     setVisible(false);
     setTimeout(() => {
-      navigate(-1);
+      history.go(-1);
     }, 150);
   };
   return (

@@ -1,7 +1,7 @@
 import './App.css';
 
 import { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, Link, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import { Layout, Menu } from 'antd';
 import Sider from 'antd/lib/layout/Sider';
@@ -21,8 +21,8 @@ function App() {
         key: 'program1',
         features: ['tasks', 'microManager'],
         menuItems: [
-          { path: 'tasks', title: 'Tasks' },
-          { path: 'microManager', title: 'Micro Manager' },
+          { path: '/tasks', title: 'Tasks' },
+          { path: '/microManager', title: 'Micro Manager' },
         ],
       });
     }, 300);

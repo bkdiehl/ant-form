@@ -1,10 +1,13 @@
 import React from 'react';
 
+import { RoutesWithSubRoutes } from 'src/components';
+import { RouteDefinition } from 'src/types';
+
 type State = Record<string, unknown>;
 
 type FeatureProviderProps = {
-  children: React.ReactNode;
   value: State;
+  routes: RouteDefinition[];
 };
 
 const FeatureContext = React.createContext<any>(undefined);
@@ -17,6 +20,10 @@ export function useFeatureContext<T = Record<string, unknown>>() {
   return context;
 }
 
-export function FeatureProvider({ children, value }: FeatureProviderProps) {
-  return <FeatureContext.Provider value={value}>{children}</FeatureContext.Provider>;
+export function FeatureProvider({ value, routes }: FeatureProviderProps) {
+  return (
+    <FeatureContext.Provider value={value}>
+      <RoutesWithSubRoutes routes={routes} />
+    </FeatureContext.Provider>
+  );
 }

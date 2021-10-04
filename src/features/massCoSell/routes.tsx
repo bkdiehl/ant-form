@@ -1,3 +1,1 @@
-import { PartialRouteObject } from 'react-router';
-
-export const taskManagerRoutes: PartialRouteObject[] = [];
+export const taskManagerRoutes = [];

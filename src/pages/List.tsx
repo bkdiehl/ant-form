@@ -1,6 +1,8 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-export default function List() {
+import { RoutesWithSubRoutes } from 'src/components';
+
+export default function List({ routes }) {
   const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <>
@@ -13,7 +15,7 @@ export default function List() {
           </li>
         ))}
       </ul>
-      <Outlet />
+      <RoutesWithSubRoutes routes={routes} />
     </>
   );
 }

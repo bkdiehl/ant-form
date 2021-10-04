@@ -1,8 +1,9 @@
 import React from 'react';
-import { PartialRouteObject, Route, useRoutes } from 'react-router';
 
+import { RoutesWithSubRoutes } from 'src/components';
 import { FeatureProvider } from 'src/providers';
 import { useFeatureStore } from 'src/stores';
+import { RouteDefinition } from 'src/types';
 
 const Dashboard = React.lazy(() => import('./pages/Dashboard'));
 
@@ -10,14 +11,12 @@ export default function TasksFeature() {
   const { getFeature } = useFeatureStore();
   const config = getFeature<any>('microManager');
 
-  const routes: PartialRouteObject[] = [
+  const routes: RouteDefinition[] = [
     {
       path: '/microManager',
-      element: <Dashboard />,
+      component: Dashboard,
     },
   ];
 
-  const element = useRoutes(routes);
-
-  return <FeatureProvider value={config}>{element}</FeatureProvider>;
+  return <FeatureProvider value={config} routes={routes} />;
 }

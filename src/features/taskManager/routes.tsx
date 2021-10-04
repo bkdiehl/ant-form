@@ -1,21 +1,20 @@
 import React from 'react';
-import { PartialRouteObject } from 'react-router';
 
 const Task = React.lazy(() => import('./pages/Task'));
 const Tasks = React.lazy(() => import('./pages/Tasks'));
 const Manager = React.lazy(() => import('./pages/Manager'));
 const Managers = React.lazy(() => import('./pages/Managers'));
 
-export const taskManagerRoutes: PartialRouteObject[] = [
+export const taskManagerRoutes = [
   {
     path: '/tasks',
-    element: <Tasks />,
-    children: [
+    component: Tasks,
+    routes: [
       {
         path: '/:id',
-        element: <Task />,
+        component: Task,
       },
     ],
   },
-  { path: '/managers', element: <Managers />, children: [{ path: '/:id', element: <Manager /> }] },
+  { path: '/managers', component: Managers, routes: [{ path: '/:id', component: Manager }] },
 ];

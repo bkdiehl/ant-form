@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 
 import { Drawer, DrawerProps } from 'antd';
 
 type Props = DrawerProps;
 
 export const RoutedDrawer: React.FC<Props> = ({ ...props }) => {
-  const navigate = useNavigate();
+  const history = useHistory();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const RoutedDrawer: React.FC<Props> = ({ ...props }) => {
   const handleClose = () => {
     setVisible(false);
     setTimeout(() => {
-      navigate('..');
+      history.push('./');
     }, 150);
   };
 

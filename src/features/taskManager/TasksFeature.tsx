@@ -1,8 +1,10 @@
 import React from 'react';
-import { PartialRouteObject, Route, useRoutes } from 'react-router';
+import { Route, Switch } from 'react-router';
 
+import { RoutesWithSubRoutes } from 'src/components';
 import { FeatureProvider } from 'src/providers';
 import { useFeatureStore } from 'src/stores';
+import { RouteDefinition } from 'src/types/routeDefinition';
 
 const Task = React.lazy(() => import('./pages/Task'));
 const Tasks = React.lazy(() => import('./pages/Tasks'));
@@ -13,25 +15,34 @@ export default function TasksFeature() {
   const { getFeature } = useFeatureStore();
   const config = getFeature<any>('tasks');
 
-  const routes: PartialRouteObject[] = [
+  const routes: RouteDefinition[] = [
     {
       path: '/tasks',
-      element: <Tasks />,
-      children: [
+      component: Tasks,
+      routes: [
         {
           path: '/:id',
-          element: <Task />,
+          component: Task,
+          routes: [
+            {
+              path: '/again',
+              component: Task,
+            },
+          ],
         },
       ],
     },
     {
       path: '/managers',
-      element: <Managers />,
-      children: [{ path: '/:id', element: <Manager /> }],
+      component: Managers,
+      routes: [
+        {
+          path: '/:id',
+          component: Manager,
+        },
+      ],
     },
   ];
 
-  const element = useRoutes(routes);
-
-  return <FeatureProvider value={config}>{element}</FeatureProvider>;
+  return <FeatureProvider value={config} routes={routes}></FeatureProvider>;
 }
