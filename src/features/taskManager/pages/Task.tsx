@@ -1,7 +1,7 @@
 import { useParams } from 'react-router';
 
 import { RoutedDrawer } from 'src/components';
-import { tasks } from 'src/features/taskManager/shared/hooks/taskHooks';
+import { tasks } from 'src/features/taskManager/shared/api/taskHooks';
 
 export default function Task() {
   const { id } = useParams();

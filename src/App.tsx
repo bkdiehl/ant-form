@@ -26,6 +26,8 @@ function App() {
         ],
       });
     }, 300);
+
+    // /api/features?feature=tasks&feature=microManager
     setTimeout(() => {
       setFeatures({
         tasks: { canView: true },

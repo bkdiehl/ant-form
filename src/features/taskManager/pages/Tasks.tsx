@@ -1,15 +1,16 @@
-import { Outlet } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
-import { Button } from 'antd';
+import { tasks } from 'src/features/taskManager/shared/api/taskHooks';
 import { TaskModal } from 'src/features/taskManager/shared/components/TaskModal';
-import { tasks } from 'src/features/taskManager/shared/hooks/taskHooks';
+
+import { useFeatureContext } from './../../../providers/Feature';
 
 export default function Tasks() {
+  const config = useFeatureContext<{ canView: boolean }>();
+
   return (
     <>
       <h1>Tasks</h1>
-      {/* <Link state={{ search: { type: 'task', id: 'new' } }}>modal</Link> */}
 
       <ul>
         {tasks.map((task) => (

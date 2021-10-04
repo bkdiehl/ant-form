@@ -21,3 +21,11 @@ export default function TasksFeature() {
 
   return <FeatureProvider value={config}>{element}</FeatureProvider>;
 }
+
+/*
+<FeatureProvider>
+  <Switch>
+    Routes
+  </Switch>
+</FeatureProvider>
+ */
