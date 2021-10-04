@@ -51,9 +51,16 @@ export default App;
 
 const MainLayout = ({ children }) => {
   return (
-    <Layout style={{ minHeight: '100vh', display: 'flex', flexDirection: 'row' }}>
+    <Layout
+      style={{
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'row',
+        overflow: 'hidden',
+      }}
+    >
       <SideBar />
-      <Layout style={{ padding: '15px' }}>{children}</Layout>
+      <Layout style={{ padding: '15px', overflowY: 'auto' }}>{children}</Layout>
     </Layout>
   );
 };

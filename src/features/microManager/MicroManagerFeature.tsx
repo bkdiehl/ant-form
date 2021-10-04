@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { RoutesWithSubRoutes } from 'src/components';
 import { FeatureProvider } from 'src/providers';
 import { useFeatureStore } from 'src/stores';
 import { RouteDefinition } from 'src/types';

@@ -8,7 +8,6 @@ export default function Tasks({ routes }) {
   return (
     <>
       <h1>Tasks</h1>
-      {/* <Link state={{ search: { type: 'task', id: 'new' } }}>modal</Link> */}
 
       <ul>
         {tasks.map((task) => (

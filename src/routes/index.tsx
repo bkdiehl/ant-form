@@ -35,7 +35,7 @@ export const AppRoutes = () => {
     //     },
     //   ],
     // },
-    { path: '/', component: Home, title: 'Home Page' },
+    { path: '/', component: Home, title: 'Home Page', exact: true },
     { path: '/form', component: Form },
     { path: '/table', component: TablePage },
     {
