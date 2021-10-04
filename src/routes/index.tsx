@@ -1,7 +1,12 @@
 import React from 'react';
 import { Outlet, useRoutes } from 'react-router';
+import { Link } from 'react-router-dom';
 
-import { taskManagerRoutes } from 'src/features/taskManager/routes';
+import { Layout, Menu } from 'antd';
+import Sider from 'antd/lib/layout/Sider';
+import { useProgramStore } from 'src/stores';
+
+import { FeatureRoutes } from './featureRoutes';
 
 const Home = React.lazy(() => import('../pages/Home'));
 const Form = React.lazy(() => import('../pages/Form'));
@@ -10,16 +15,8 @@ const List = React.lazy(() => import('../pages/List'));
 const ListItem = React.lazy(() => import('../pages/ListItem'));
 const TestModal = React.lazy(() => import('../pages/Modals/TestModal'));
 
-const MainLayout = ({ children }) => {
-  return <div style={{ margin: '0 auto', width: '100%', maxWidth: '800px' }}>{children}</div>;
-};
-
 const AppLayout = () => {
-  return (
-    <MainLayout>
-      <Outlet />
-    </MainLayout>
-  );
+  return <Outlet />;
 };
 
 export const AppRoutes = () => {
@@ -39,12 +36,16 @@ export const AppRoutes = () => {
             { path: '/:id/edit', element: <TestModal /> },
           ],
         },
-        ...taskManagerRoutes,
       ],
     },
   ];
 
   const element = useRoutes(routes);
 
-  return <>{element}</>;
+  return (
+    <>
+      {element}
+      <FeatureRoutes />
+    </>
+  );
 };

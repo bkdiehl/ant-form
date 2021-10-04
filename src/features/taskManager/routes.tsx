@@ -7,6 +7,15 @@ const Manager = React.lazy(() => import('./pages/Manager'));
 const Managers = React.lazy(() => import('./pages/Managers'));
 
 export const taskManagerRoutes: PartialRouteObject[] = [
-  { path: '/tasks', element: <Tasks />, children: [{ path: '/:id', element: <Task /> }] },
+  {
+    path: '/tasks',
+    element: <Tasks />,
+    children: [
+      {
+        path: '/:id',
+        element: <Task />,
+      },
+    ],
+  },
   { path: '/managers', element: <Managers />, children: [{ path: '/:id', element: <Manager /> }] },
 ];

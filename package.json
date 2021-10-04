@@ -37,7 +37,8 @@
     "react-window": "^1.8.6",
     "typescript": "^4.1.2",
     "virtualizedtableforantd4": "^1.1.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "zustand": "^3.5.12"
   },
   "scripts": {
     "start": "react-scripts start",
